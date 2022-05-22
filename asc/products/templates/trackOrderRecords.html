@@ -1,0 +1,127 @@
+
+<style type>
+{% include 'css/form.css' %}
+	tr:hover
+{
+	background-color: green;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+</style>
+
+  <form method="POST" action="#"  id="trackerFormsss">{% csrf_token %}
+<!--    Order Founds-->
+<div id ="tracktables" style="display:none" >
+	<div class="row">
+		<div class="col-md-1"></div>
+<div class="col-md-10">
+<div class="row">
+	<div class="col-md-7">
+
+		<div class="card card-body">
+			<h5 style="font-style:bold;">Your  Details:</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Customer</th>
+					<th>Phone No</th>
+                    <th>Address</th>
+				</tr>
+				<tr id="items">
+
+				</tr>
+
+			</table>
+		</div>
+	</div>
+
+<!--	Total Orders -->
+	<div class="col-md-2">
+
+		<div class="card card-body">
+			<h5 style="font-style:bold;">Your  Orders:</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Total Orders</th>
+
+				</tr>
+				<tr id="items4">
+
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<!--	Products-->
+	<div class="col-md-3">
+
+		<div class="card card-body">
+					<h5 style="font-style:bold;">Your  Orders Products:</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Total Orders</th>
+
+				</tr>
+				<tr id="items5">
+
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<!--	ends-->
+	</div>
+<hr>
+
+<!--ENDS-->
+<div class="row">
+        <!--    Table 2 Product Details-->
+    <br><div class="col-md-7">
+
+    		<div class="card card-body">
+				<h5 style="font-style:bold;">Your Order Product Details :</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Order Product </th>
+					<th>Order ID </th>
+					<th>Amounts</th>
+				</tr>
+				<tr id="items2">
+
+				</tr>
+
+			</table>
+		</div>
+	</div>
+	<!--    Table 3 Delivery Method-->
+	<div class="col-md-5">
+    		<div class="card card-body">
+				<h5>Payment and Delivery Details</h5>
+			<table class="table table-sm">
+				<tr>
+					<th>Delivery</th>
+                    <th>Quantity </th>
+				</tr>
+				<tr id="items3">
+
+				</tr>
+
+			</table>
+		</div>
+<br>
+<!--    ENDS-->
+	</div>
+</div>
+
+
+	<button  id="cancelOrder" style="margin-left: 10px;display:none;width:98%;" type="alert" class="btn btn-danger">Cancel Order</button><br>
+	<button  id="backtrack" style="margin-left: 10px;width:98%;" type="alert" class="btn btn-primary cart"> Back To Track</button>
+
+</div>
+
+</div>
+	</div>
+	   </form>
+
+<!--    ENDS-->
+

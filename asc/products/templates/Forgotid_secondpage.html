@@ -1,0 +1,53 @@
+{% extends 'headerp.html' %}
+
+
+{% block body %}
+<br><br><br><br><br>
+<br><br>
+{% include 'css/forgot_secPage.css' %}
+
+{% include 'windowloader.html' %}
+ {% if order %}
+   <!--Customer Details-->
+<br><br>
+<h1 id="headingids"><b> Your Tracking ID Details </b></h1><br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm" id = customers>
+				<tr>
+					<th>Order Tracking ID</th>
+					<th>Product</th>
+					<th>Order Date</th>
+
+				</tr>
+				{% for i in order %}
+				<tr>
+					<td>{{i.order_id}}</td>
+					<td>{{i.pname}}</td>
+					<td>{{i.order_time}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+	</div>
+</div>
+
+            {% endif %}
+
+{% if cnic %}
+<br><br><br>
+<!--    Order Not Found-->
+            <div class="my-4">
+            <ul class="list-group" id="citems">
+                <li style="font-size:20px;color:black;text-align : center;">Sorry Your CNIC is not in Our System</li>
+                <li style="font-size:20px;color:black;text-align : center;">Try Again</li>
+            </ul>
+        </div>
+
+    <!--    Order is Deleted-->
+{% endif %}
+
+{% endblock %}

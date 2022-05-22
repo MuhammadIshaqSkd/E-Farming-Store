@@ -1,0 +1,32 @@
+{% extends 'headerp.html' %}
+
+
+{% block body %}
+<br><br><br><br> <br><br><br>
+
+<div id="formcontiner" style="display:grid;" class="container">
+    <div class="col my-4">
+        <br><br>
+        <h2>Enter your CNIC to check your Order Tracking IDs</h2>
+        <form method="POST" id="trackerForm" action="/products/checkingcnicids/" >
+
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="cnic">CNIC</label>
+                    <input type="cnic" class="form-control" id="cnic" name="cnic" placeholder="CNIC" required><br>
+                </div>
+                <div class="forgotbtn">
+                     <button  id="subited" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!--Form ENDS-->
+
+
+<hr>
+{% include 'js/forgottrackingid.js' %}
+{% endblock %}

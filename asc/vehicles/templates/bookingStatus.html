@@ -1,0 +1,218 @@
+{% extends 'headerv.html' %}
+
+
+{% load static %}
+
+{% block body %}
+{% include 'css/bookingStatus.css' %}
+
+{% if status %}
+<br xmlns="http://www.w3.org/1999/html"><br><br><br>
+<br><br><br><br>
+	<div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <h1 class="porductHeading ">Welcome TO Online Track Your Booking System.</h1><br>
+                            <h2 style="font-family: 'Impact', fantasy;">Enter your Booking Id and CNIC to check your Booking Status</h2><br>
+        </div>
+    </div>
+        <form method="POST" action="/vehicles/checkingbookingStatus/"  id="trackerForm">{% csrf_token %}
+            <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-3">
+                     <label style="color:black;font-size:20px;" for="inputnID" >Booking ID</label>
+                     <input type="text" class="form-control" id="order_id" name="booking_id" placeholder="Order Id" required>
+                </div>
+                <div class="col-md-3">
+                     <label style="color:black;font-size:20px;"  for="cnic">CNIC</label>
+                     <input type="cnic" class="form-control" id="cnic" name="cnic" placeholder="CNIC" required>
+                </div>
+            </div>
+
+                    <button style="margin-left:30%;" type="submit" class="btn btn-primary">Track Order</button>
+        </form>
+
+		{% if no %}
+
+		<!--    Order Not Found-->
+<br><br>
+	<div class="row">
+
+		<div class="col-md-2"></div>
+		<div class="col-md-6">
+                <ul class="list-group" id="citems">
+                	<li class="list-group-item d-flex justify-content-between align-items-center">
+                  	Sorry, We are not able to fetch this order id and CNIC. Make sure to type correct Booking Id and CNIC</li>
+                </ul>
+		</div>
+	</div>
+
+
+		{% endif %}
+                    <!--Form ENDS-->
+{% endif %}
+
+
+{% if ye %}
+
+<br><br><br><br><br><br><br><br><br>
+<div id="orderdetails" style="display:grid;">
+<h2 style="text-align:center;">Your Booking Details</h2>
+	<br>
+<div class="row">
+    <div class="col-md-1"></div>
+	<div class="col-md-6">
+		<div class="card card-body">
+			<table class="table table-sm" id = customers>
+				<tr>
+					<th>Customer Name</th>
+					<th>Address</th>
+					<th>Phone</th>
+
+				</tr>
+				{% for i in order %}
+				<tr>
+					<td>{{i.name}}</td>
+					<td>{{i.address}}</td>
+					<td>{{i.phone}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+	</div>
+
+
+    	<div class="col-md-3">
+		<div class="card card-body">
+			<table class="table table-sm" >
+				<tr>
+					<th>Total Orders</th>
+					<th>Total Amount</th>
+
+				</tr>
+				{% for i in order %}
+				<tr>
+					<td>{{count}}</td>
+					<td>{{i.amount}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+	</div>
+</div>
+<br><br>
+
+<div class="row">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+		<div class="card card-body">
+			<table class="table table-sm" >
+				<tr>
+					<th>Product ID</th>
+					<th>Product Name</th>
+					<th>Order Date</th>
+
+				</tr>
+				{% for i in order %}
+				<tr>
+					<td>{{i.booking_id}}</td>
+					<td>{{i.vname}}</td>
+					<td>{{i.booking_time}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+	</div>
+    <div class="col-md-3">
+		<div class="card card-body">
+			<table class="table table-sm" >
+				<tr>
+<!--					<th>Payment</th>-->
+					<th>Payment Method</th>
+
+				</tr>
+				{% for i in order %}
+				<tr>
+<!--					<td>{{i.STATUS}}</td>-->
+					<td>Cash On Delivery</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+	</div>
+</div>
+	<br>
+<div class="row">
+	<div class="col-md-4"></div>
+	<div style="align-items:center;" class="col-md-6">
+			<button id="cancebtn"  type="button" class="btn btn-danger">Cancel Order</button>
+	</div>
+</div>
+
+</div>
+<!--comfirming-->
+<div id="confirm" class="bg-modals" style="display:none;">
+
+  <div class="modal-contents">
+<!--          <div class="close">+</div><br> <br>-->
+            <div class="col-md-12 de" style="background-color:green;border:3px solid black;margin-top:20px;">
+                                <h2  style="font-size: 17px;margin-right:10%;color:white;"><b> Warning </b></h2>
+
+             </div>
+            <div>
+                             <img style="height:150px;" src='{% static "vehicles/confirm.png" %}'>
+                             <p style="margin-top:10px;color:black;" ><b> Note your Booking details and record will delete in our system .</b></p>
+            </div>
+<br>
+           <form method="POST" action="/vehicles/cancelbooking/"  id="trackerFormsss">{% csrf_token %}
+			   	{% for i in order %}
+					<input type="hidden" name="booking_id"  value="{{i.booking_id}}" >
+				{% endfor %}
+			<button  type="submit" class="btn btn-danger">Confirm</button>
+			<button id="dismiss" type="button"  type="button" class="btn btn-primary cart">Dismiss</button>
+
+		</form>
+
+
+  </div>
+</div>
+<!--    ENDS-->
+
+{% endif %}
+
+{% if dele %}
+<br><br><br><br><br><br><br><br><br>
+<div class="bg-modals">
+
+  <div class="modal-contents">
+<!--          <div class="close">+</div><br> <br>-->
+            <div class="col-md-12 de" style="background-color:green;border:3px solid black;margin-top:20px;">
+                                <h2  style="font-size: 17px;margin-right:10%;color:white;"><b>Your Order is Successfully Cancel</b></h2>
+
+             </div>
+            <div>
+                             <img style="height:160px;" src='{% static "vehicles/cancel.png" %}'>
+				<br>
+                             <p style="margin-top:10px;color:black;" ><b> Your Booking ID is {{dele}} is Cancel</b></p>
+            </div>
+           <form action="/index">
+
+               <button style="margin-top:24px;" type="submit" class="btn btn-primary cart">Dismiss</button>
+            </form>
+
+  </div>
+</div>
+{% endif %}
+
+{% include 'js/bookingstatus.js' %}
+
+{% endblock %}

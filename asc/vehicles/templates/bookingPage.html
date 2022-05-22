@@ -1,0 +1,111 @@
+{% extends 'headerv.html' %}
+{% load static %}
+
+{% block body %}
+{% include 'css/bookingcss.css' %}
+<br><br><br><br><br><br><br>
+
+{% if f %}
+
+
+<br>
+<div style="margin-left:15%;">
+  <div id="bookingformdiv" class="row g-3" style="">
+      <hr>
+        <h1 style="text-align:center;letter-spacing: 0.5rem;"><b>Booking Form</b></h1>
+        <hr>
+  </div>
+ <form id="formdiv" action="/vehicles/bookingOrder/" method = "POST" class="row g-3">
+        {% csrf_token %}
+     {% if v %}
+        <input type="hidden" name="vname"  value="{{product.vehicle_name}}" >
+        <input type="hidden" name="amount"  value="{{product.rent_price}}" >
+     {% endif %}
+     {% if t %}
+           <input type="hidden" name="vname"  value="{{product.tool_name}}" >
+            <input type="hidden" name="amount"  value="{{product.rent_price}}" >
+     {% endif %}
+     {% if d %}
+            <input type="hidden" name="vname"  value="{{product.drone_name}}" >
+            <input type="hidden" name="amount"  value="{{product.rent_price}}" >
+     {% endif %}
+
+              <div  class="col-md-5">
+                <label    for="inputEmail4" class="form-label"><b>Name</b></label>
+                <input style="background-color:lightblue;" type="name" class="form-control" name="name" id="inputEmail4" placeholder="abc" required>
+              </div>
+              <div class="col-md-6">
+                <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
+                <input style="background-color:lightblue;" type="phone" class="form-control" name="phone" id="inputPassword4" placeholder="+92" required>
+              </div>
+              <div class="col-12">
+                <label  for="inputAddress" class="form-label"><b>Address</b></label>
+                <input style="background-color:lightblue; width:92%; " type="text" class="form-control" name="address" id="inputAddress" placeholder="abc" required>
+              </div>
+              <div class="col-md-6">
+                <label  for="inputCity" class="form-label"><b>CNIC</b></label>
+                <input style="background-color:lightblue;" type="number" class="form-control" name="cnic" id="inputCity" placeholder="don't use  '-' " required>
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label"><b>Choice Branch</b></label>
+                <select  style="margin-left:600px;height:0px;width:0px;background-color:white;margin-top:-20px;"  name="branch" id="inputState" class="form-select">
+                  <option>Rawalpindi</option>
+                  <option>Lahore</option>
+                  <option>Karachi</option>
+                  <option>Chakwal</option>
+                </select>
+              </div>
+              <div style="text-align: center;width: 300px;height: 100px;padding-top: 10px;" class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+ </form>
+    </div>
+{% endif %}
+
+{% if s %}
+<div class="bg-modals">
+
+  <div class="modal-contents">
+<!--          <div class="close">+</div><br> <br>-->
+            <div class="col-md-12 de" style="background-color:green;border:3px solid black;margin-top:20px;">
+                                <h2 id ="order_headings" style="font-size: 17px;margin-right:200px;color:white;"><b>Your Booking is Sccessfully Placed</b></h2>
+
+             </div>
+            <div>
+                             <img style="margin-top:10px;" src='{% static "images2/tick.png" %}'>
+                             <p style="margin-top:10px;color:black;" ><b> Your Tracking ID is {{id}}</b></p>
+                             <p style="margin-top:10px;color:black;" ><b> Note your tracking ID for later use.</b></p>
+            </div>
+           <form action="/vehicles/homev/">
+               <button style="margin-top:20px;" type="submit" class="btn btn-primary cart">Dismiss</button>
+            </form>
+
+  </div>
+</div>
+{% endif %}
+
+
+<!--Complaint Dest popup start-->
+{% if c %}
+<div class="bg-modals">
+
+  <div class="modal-contents">
+<!--          <div class="close">+</div><br> <br>-->
+            <div class="col-md-12 de" style="background-color:green;border:3px solid black;margin-top:20px;">
+                                <h2 id ="order_headingss" style="font-size: 17px;margin-right:200px;color:white;"><b>Complaint Desk</b></h2>
+
+             </div>
+            <div>
+                             <img style="margin-top:10px;height:150px;" src='{% static "vehicles/operator.png" %}'>
+                             <p style="margin-top:10px;color:black;" ><b> Our Operator will contact you very soon. </b></p>
+<!--                             <p style="margin-top:10px;color:black;" ><b> Complaint is .</b></p>-->
+            </div>
+           <form action="/complaindesk">
+               <button style="margin-top:20px;" type="submit" class="btn btn-primary cart">Dismiss</button>
+            </form>
+
+  </div>
+</div>
+{% endif %}
+<!--Complaint Dest popup End-->
+{% endblock %}

@@ -1,0 +1,91 @@
+ {% load static %}
+
+<style type="text/css">
+h1 {
+  font-family: "Inconsolata", Consolas, monospace;
+  font-size: 2em;
+  color: black;
+}
+
+.typing {
+  position: relative;
+}
+.typing::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  color: black;
+  background: white;
+  -webkit-animation: typing 4s steps(16) forwards, caret 1s infinite;
+          animation: typing 4s steps(16) forwards, caret 1s infinite;
+}
+
+@-webkit-keyframes typing {
+  to {
+    width: 0;
+  }
+}
+
+@keyframes typing {
+  to {
+    width: 0;
+  }
+}
+@-webkit-keyframes caret {
+  50% {
+    color: transparent;
+  }
+}
+@keyframes caret {
+  50% {
+    color: transparent;
+  }
+}
+
+
+
+
+
+
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
+
+  &.collapse-horizontal {
+    width: 0;
+    height: auto;
+    @include transition($transition-collapse-width);
+  }
+}
+
+
+
+
+
+#maindiv{
+            width: 70%;
+            height: 400px;
+            position: absolute;
+            left: 30%;
+            top: 65%;
+            transform: translate(-50%, -50%);
+            background-size: 120% 120%;
+            box-shadow: 1px 2px 10px 10px white;
+            animation: slider 20s infinite linear;
+}
+
+
+        @keyframes slider{
+            0%{ background-image: url({% static "vehicles/operator.png" %} ); }
+            75%{ background-image: url({% static "vehicles/24.png" %} ); }
+            100%{ background-image: url({% static "vehicles/operator.png" %}); }
+        }
+</style>

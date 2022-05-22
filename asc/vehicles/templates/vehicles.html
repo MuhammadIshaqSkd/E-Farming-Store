@@ -1,0 +1,283 @@
+{% extends 'headerv.html' %}
+{% load static %}
+{% block body %}
+
+
+<br><br><br><br>
+{% include 'css/vcardcss.css' %}
+{% include 'windowloader.html' %}
+
+
+<!--Displaying vehicles start-->
+{% if n %}
+<div class="container">
+
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <br><br>
+    <hr>
+    <div class="row">
+        <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class="carousel-indicators">
+
+            </ul>
+            <div class="container carousel-inner no-padding">
+                <div class="carousel-item active">
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3" >
+                    	<div class="product-card">
+                            <div class="badge">Rent</div>
+                            <div class="product-tumb">
+                                    <img  src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            </div>
+                            <div class="product-details">
+                                    <span class="product-catagory">{{i.TYPE}}</span>
+                                    <p><a  href="/vehicles/productviewV/{{i.id}}">{{i.vehicle_name}}</a></p>
+                                    <div class="product-bottom-details">
+                                        <div class="product-price"><small>$96.00</small>{{i.rent_price}}</div>
+                                        <div class="product-links">
+                                            <i id="heart" style="color:gray;" class="fa fa-heart"></i>
+                                            <a href="/vehicles/bookingV/{{i.id}}" ><i class="fa fa-shopping-cart"></i></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:100 and forloop.counter > 0 and not forloop.last %}
+                </div>
+
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endif %}
+<!--Displaying vehicles End-->
+
+<!--Displaying tools start-->
+{% if v %}
+<div class="container">
+
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <br><br>
+    <hr>
+    <div class="row">
+        <div id="demot{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class="carousel-indicators">
+
+            </ul>
+            <div class="container carousel-inner no-padding">
+                <div class="carousel-item active">
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3" style="">
+                    	<div class="product-card">
+                            <div class="badge">Rent</div>
+                            <div class="product-tumb">
+                                    <img  src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            </div>
+                            <div class="product-details">
+                                    <span class="product-catagory">{{i.TYPE}}</span>
+                                    <p><a href="/vehicles/productviewT/{{i.id}}">{{i.tool_name}}</a></>
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>-->
+                                    <div class="product-bottom-details">
+                                        <div class="product-price"><small>$96.00</small>{{i.rent_price}}</div>
+                                        <div class="product-links">
+                                            <i id="heart" class="fa fa-heart"></i>
+                                            <a href="/vehicles/bookingT/{{i.id}}"><i class="fa fa-shopping-cart"></i></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:100 and forloop.counter > 0 and not forloop.last %}
+                </div>
+
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+ {% endif %}
+<!--Displaying tools End-->
+
+
+<!--Displaying drones start-->
+{% if d %}
+<div class="container">
+
+    <!--Slideshow starts here -->
+    {% for product, range, nSlides in allProds %}
+    <br><br>
+    <hr>
+    <div class="row">
+        <div id="demod{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class="carousel-indicators">
+
+            </ul>
+            <div class="container carousel-inner no-padding">
+                <div class="carousel-item active">
+                    {% for i in product %}
+                    <div class="col-xs-3 col-sm-3 col-md-3" style="">
+                    	<div class="product-card">
+                            <div class="badge">Rent</div>
+                            <div class="product-tumb">
+                                    <img  src='/media/{{i.image}}' class="card-img-top" alt="...">
+                            </div>
+                            <div class="product-details">
+                                    <span class="product-catagory">{{i.TYPE}}</span>
+                                <p><a href="/vehicles/productviewD/{{i.id}}"><b>{{i.drone_name}}</b></a></p>
+                                    <div class="product-bottom-details">
+                                        <div class="product-price"><small>$96.00</small>{{i.rent_price}}</div>
+                                        <div class="product-links">
+                                            <i id="heart" class="fa fa-heart"></i>
+                                            <a href="/vehicles/bookingD/{{i.id}}"><i class="fa fa-shopping-cart"></i></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:100 and forloop.counter > 0 and not forloop.last %}
+                </div>
+
+                <div class="carousel-item">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+ {% endif %}
+<!--Displaying drones End-->
+
+
+<!--Search display start here-->
+
+<br><br><br><br><br><br>
+<hr>
+
+<!--Vehicles Details Start-->
+{% if sv %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div  class="col-md-4">
+            <img src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6 style="text-align: center;"><b>We also provide operator with the vehicles</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+                <a  id="open-popup-btn" href="/vehicles/bookingV/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+         </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="detail" class="col-md-6 de">
+                <h5><b>{{product.vehicle_name}}</b></h5><br><hr>
+                <p><b> Rent Price Rs : {{product.rent_price}} per hour only </b></p><br><hr>
+                <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Vehicles Details END-->
+
+
+<!--Tools Details Start-->
+{% if st %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6><b>We also provide operator with the Drone</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+              <a  id="open-popup-btnt" href="/vehicles/bookingT/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+            </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="details" class="col-md-6 de">
+                <h5><b>{{product.tool_name}}</b></h5><br><hr>
+                <p><b>Rent Price Rs : {{product.rent_price}} per day only </b></p><br><hr>
+                <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Tools Details END-->
+
+
+<!--Drone Details Start-->
+{% if sd %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img  src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6><b>We also provide operator with the Tool</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+                <a  id="open-popup-btnd" href="/vehicles/bookingD/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+            </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="detailss" class="col-md-6 de">
+                <h5><b>{{product.drone_name}}</b></h5><br><hr>
+                <p><b>Rent Price Rs : {{product.rent_price}} per day only </b></p><br><hr>
+          <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Drone Details END-->
+
+
+{% if nots %}
+<br><br><br><br><br><br><br>
+<h1 style="text-align:center;"><b>{{nots}} Not Found The Item Search Again</b></h1>
+{% endif %}
+<!--Search display end here-->
+{% include 'js/vehicles.js' %}
+
+{% endblock %}
+<!--Displaying products ENDS -->
+<!--Forgot Tracking ID ENDS-->

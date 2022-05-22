@@ -1,0 +1,211 @@
+
+{% load static %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+ <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+{% include 'css/admin.css' %}
+ <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div   class="container">
+    <nav>
+		<ul class="mcd-menu">
+			<li>
+				<a>
+					<i class='bx bx-line-chart'></i>
+					<strong>Admin Analytics </strong>
+				</a>
+			</li>
+			<li>
+				<a href="/products/logout/" class="active">
+					<i class='bx bxs-home' ></i>
+					<strong>Home</strong>
+				</a>
+			</li>
+			<li>
+				<a id="orderbtn">
+					<i class='bx bx-cart-download'></i>
+					<strong>Orders Status</strong>
+				</a>
+			</li>
+			<li>
+				<a id="cash">
+					<i class='bx bx-cart'></i>
+					<strong>Total Cash</strong>
+				</a>
+			</li>
+			<li>
+				<a id="riderbtn">
+					<i class='bx bx-user'></i>
+					<strong>Riders</strong>
+				</a>
+            </li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+        </div>
+ </div>
+
+<!--	Order Status Cart Start-->
+	<div id="orderstatus" style="margin-top:30px; display:grid;" class="col-md-4">
+		<canvas id="myCharts" width="500" height="600"></canvas>
+		<script>
+		const ctx = document.getElementById('myCharts').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type: 'polarArea',
+			data: {
+			   labels: ['Pending Orders','Complete Orders'],
+				datasets: [{
+					label: '# of Votes',
+					data: [{{pan|safe}},{{cm|safe}}],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+		</script>
+    </div>
+	<!--	Orer Status Start-->
+
+
+<!--	Total Cash Start -->
+	<div id="aoumt"style="margin-top:30px; display:none;margin-left:-204px;" class="col-md-8">
+
+		<div class="col-md">
+			<br>
+			<h2 style="font-family: 'Impact', fantasy;text-align:center;">Total Cash From Different Branches Details</h2><br>
+		<div class="card card-body">
+			<table  class="table table-sm" id = customers>
+				<tr>
+					<th style="text-align:center;">Total Cash</th>
+				</tr>
+
+				<tr>
+					<td><i class='bx bx-money-withdraw' ></i><b> Rs {{am}}</b></td>
+				</tr>
+
+			</table>
+			<table  class="table table-sm" id = customers>
+				<tr>
+					<th>Branch</th>
+					<th>Received Cash</th>
+					<th>Date</th>
+				</tr>
+				{% for i in total_amount %}
+				<tr>
+					<td>{{i.city}}</td>
+					<td>Rs {{i.received_money}}</td>
+					<td>{{i.deliverd_time}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+		</div>
+	</div>
+<!--		Ends-->
+
+<!--	Total Rider Start-->
+	<div id="riders" style="margin-top:90;margin-left:-104px;display:none;" class="col-md-6">
+				<div  class="col">
+						<div class="col-md">
+							<div class="card text-center text-white  mb-3" id="orders-delivered">
+								<div class="card-header">
+									<h5 style="font-family: 'Impact', fantasy;text-align:center;color:black;" class="card-title">Total Riders in System </h5>
+								</div>
+								<div class="card-body">
+									<h3 class="card-title">{{total_rider}}</h3>
+								</div>
+							</div>
+			    </div>
+					<h2 style="color:black;text-align:center;font-family: 'Impact', fantasy;font-size: 2.5rem;">Branches Riders </h2>
+		<div class="row">
+				<div class="col-md-4">
+					<div class="col">
+							<div class="col-md">
+								<div class="card text-center text-white  mb-3" id="orders-pending">
+									<div class="card-header">
+										<h5 style="font-family: 'Impact', fantasy;text-align:center;color:black;" class="card-title">Karachi</h5>
+									</div>
+									<div class="card-body">
+										<h3 class="card-title">{{total_riderk}}</h3>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="col">
+							<div class="col-md">
+								<div class="card text-center text-white  mb-3" id="orders-pending">
+									<div class="card-header">
+										<h5 style="font-family: 'Impact', fantasy;text-align:center;color:black;" class="card-title">Lahore</h5>
+									</div>
+									<div class="card-body">
+										<h3 class="card-title">{{total_riderl}}</h3>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-4">
+							<div class="col">
+							<div class="col-md">
+								<div class="card text-center text-white  mb-3" id="orders-pending">
+									<div class="card-header">
+										<h5 style="font-family: 'Impact', fantasy;text-align:center;color:black;" class="card-title">Chakwal</h5>
+									</div>
+									<div class="card-body">
+										<h3 class="card-title">{{total_riderc}}</h3>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
+	</div>
+<!--	ENDS-->
+</div>
+	 <!--ENDS-->
+
+<!--	 Sales Starts-->
+	 <div  style="margin-top:30px; display:none;" class="col-md-4">
+
+    </div>
+<!--	 ENDS-->
+ </div>
+
+
+
+<script>
+
+
+{% include 'js/admin.js' %}
+</script>

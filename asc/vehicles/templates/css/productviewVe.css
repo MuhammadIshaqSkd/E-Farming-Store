@@ -1,0 +1,41 @@
+
+
+<style>
+  #detail{
+  margin-top :07%;
+  }
+   #details{
+  margin-top :07%;
+  }
+  h5
+  {
+  font-size :30px;
+  color : green;
+  letter-spacing: 0.2rem;
+  }
+  p{
+  font-size : 20px ;
+  letter-spacing: 0.2rem;
+  color :black;
+  }
+  .note{
+  color : red;
+  letter-spacing: 0.2rem;
+  font-size : 25px;
+  }
+  .desc{
+  font-size : 20px;
+  letter-spacing: 0.2rem;
+  padding-top : 30px;
+  font-family: "Times New Roman", Times, serif;
+  }
+.lablename{
+font-size:12px bold;
+font-color:black;
+}
+
+
+
+
+
+</style>

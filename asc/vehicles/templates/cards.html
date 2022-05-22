@@ -1,0 +1,45 @@
+{% load static %}
+
+{% include 'css/cardcss.css' %}
+
+ <div style="margin-top:100px;">
+      <div class="cards-list">
+        <a href="/vehicles/vehicles/">
+          <div class="card 1" id="vcard">
+            <div class="card_title title-white">
+              <p style="color:black;">Vehicals</p>
+            </div>
+            <div class="card_image"> <img src='{% static "vehicles/tractor.jpg" %}' /> </div>
+          </div>
+        </a>
+    <a href="/vehicles/tools/">
+          <div class="card 2">
+            <div class="card_title title-white">
+            <p style="color:black;">Tools</p>
+            </div>
+              <div class="card_image">
+                <img src='{% static "vehicles/tools3.jpg" %}' />
+              </div>
+          </div>
+     </a>
+    <a href="/vehicles/drones/">
+        <div class="card 3">
+          <div class="card_title">
+            <p>Drones</p>
+          </div>
+          <div class="card_image">
+            <img src='{% static "vehicles/drone.png" %}' />  </div>
+        </div>
+    </a>
+         <!--  <div class="card 4">
+             <div class="card_title title-black">
+            <p>Drones</p>
+          </div>
+          <div class="card_image">
+            <img src="drone.jpg"  />
+            </div>
+
+          </div> -->
+
+      </div>
+ </div>

@@ -1,0 +1,88 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block body %}
+
+{% include 'css/branches.css' %}
+<br><br><br><br><br>
+
+<div class="row">
+    <div  class="col-md-1"></div>
+      <div  class="col-md-6">
+            <img style="height:90%;" src='{% static "vehicles/branch.png" %}'>
+        </div>
+        <div  class="col-md-4">
+            <br><br><br>
+            <h1 style="color:green;text-align:center;font-family: 'Impact', fantasy;font-size: 2.1rem;">E-Farming Store Limited</h1>
+            <p style="color:black;font-size: 1.1rem;"><img src='{% static "icon/1.png" %}'> E-farming store has wide range of customer care branches as well as products,Tools and Renter operations are deal in our branches. We have 24/7 services on our
+            Web site where customer can easy manage to get product on any time any where system.
+            Our branch timing is to<b> 9 am to 4 pm </b>, Saturday and Sunday will off days.<br>
+            We providing services on following Cities. <img src='{% static "icon/2.png" %}'></p>
+            <ul style="color:black;font-size:1rem;">
+                <li><img src='{% static "icon/3.png" %}'> Karachi</li>
+                <li><img src='{% static "icon/3.png" %}'> Rawalpindi</li>
+                <li><img src='{% static "icon/3.png" %}'> Lahore</li>
+                <li><img src='{% static "icon/3.png" %}'> Chakwal</li>
+            </ul>
+
+        </div>
+</div>
+<h1 style="text-align: center;margin-top: 20px;letter-spacing: 0.5rem;"><b>Our Branches</b></h1>
+{% if brnmain %}
+
+<div style="margin-top:70px;">
+      <div class="cards-list">
+        <a href="/vehicles/branchesK/" style="margin-top:30px;">
+          <div class="card 1" id="vcard">
+            <div class="card_title title-white">
+              <p style="color:black;text-align: center;letter-spacing: 0.5rem;"><b>Karachi</b></p>
+            </div>
+            <div class="card_image"> <img src='{% static "vehicles/branch.png" %}' /> </div>
+          </div>
+        </a>
+    <a href="/vehicles/branchesR/" style="margin-top:30px;">
+          <div class="card 2">
+            <div class="card_title title-white">
+            <p style="color:black;text-align: center;letter-spacing: 0.5rem;">Rawalpindi</p>
+            </div>
+              <div class="card_image">
+                <img src='{% static "vehicles/branch.png" %}' />
+              </div>
+          </div>
+     </a>
+    <a href="/vehicles/branchesL/" style="margin-top:30px;">
+        <div class="card 3">
+          <div class="card_title">
+            <p style="color:black;text-align: center;letter-spacing: 0.5rem;">Lahore</p>
+          </div>
+          <div class="card_image">
+            <img src='{% static "vehicles/branch.png" %}' />  </div>
+        </div>
+    </a>
+          <a href="/vehicles/branchesC/" style="margin-top:30px;">
+         <div class="card 4">
+             <div class="card_title title-black">
+            <p style="color:black;text-align: center;letter-spacing: 0.5rem;">Chakwal</p>
+          </div>
+          <div class="card_image">
+            <img src='{% static "vehicles/branch.png" %}' />
+            </div>
+
+          </div></a>
+
+      </div>
+ </div>
+{% endif %}
+{% if b %}
+<h1 style="text-align: center;margin-top: 20px;letter-spacing: 0.5rem;"><b>{{branch.branch_name}}</b></h1><br>
+<ul>
+<li style="margin-left:20%;color:black;font-size:15px;"><img src='{% static "icon/loc1.png" %}' />Location : {{branch.address}}</li><br>
+<li style="margin-left:20%;color:black;font-size:15px;"><img src='{% static "icon/call1.png" %}' /> Tele Number : (+71)9876543109</li><br>
+<li style="margin-left:20%;color:black;font-size:15px;"><img style="height:25px;" src='{% static "icon/time.png" %}' />  Office Timing is {{branch.office_timing}}</li><br>
+</ul><hr style="width:55%;border: 2px solid green;margin-left:20%;">
+    <br>
+<br>
+<br>
+{% endif %}
+
+{% endblock %}

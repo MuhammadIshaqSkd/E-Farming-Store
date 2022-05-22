@@ -1,0 +1,14 @@
+{% extends 'headerv.html' %}
+{% load static %}
+
+{% block body %}
+<br><br><br><br><br>
+
+{% include 'windowloader.html' %}
+<!--<img src='{% static "vehicles/mainimag.jpg" %}'>-->
+{% include 'sliderV.html' %}
+
+<h1 style="text-align: center;margin-top: 5px;font-family: 'Impact', fantasy;font-size: 2.1rem;">Categories</h1>
+{% include 'cards.html' %}
+
+{% endblock %}

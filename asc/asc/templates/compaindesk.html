@@ -1,0 +1,58 @@
+{% extends 'header.html' %}
+
+ {% load static %}
+
+{% block body %}
+{% include 'css/complainCss.css' %}
+<br><br><br><br><br><br><br>
+<div class="row">
+<!--    <div  class="col-md-1"></div>-->
+    <div  class="col-md-1">
+<!--        <img style="margin-top:14px;" src='{% static "vehicles/24.png" %}'>-->
+    </div>
+      <div id="maindiv" class="col-md-4">
+<!--            <img src='{% static "vehicles/operator.png" %}'>-->
+        </div>
+
+    <div  class="col-md-6">
+
+        <div id="textam" style="width:89%; display:grid;">
+            <br><br><br><br><br><br><br><br>
+          <h1  class="typing">Hello! Sir submit your complaint below.</h1>
+            </div>
+        <br><br><br>
+          <a id="formc" style="text-align:center;letter-spacing: 0.5rem;" href="#demo" data-toggle="collapse"><b>Complaint Form</b></a>
+                <br><br>
+         <form id="formdiv" action="/vehicles/complaints/" method = "POST">{% csrf_token %}
+            <div id="demo" class="collapse">
+               <label    for="inputEmail4" class="form-label"><b>Name</b></label>
+                <input style="border:2px solid;" type="name" class="form-control" name="name" id="inputEmail4" placeholder="abc" required>
+
+                <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
+                <input style="border:2px solid;" type="phone" class="form-control" name="phone" id="inputPassword4" placeholder="+92" required>
+
+                <label style="" for="inputState" class="form-label"><b> Complaint Type</b></label>
+                <select style="margin-left:600px;width:0%;background-color:lightblue;" name="comtype" id="inputState" class="form-select">
+                  <option>Product</option>
+                  <option>Delivery</option>
+                  <option>Rider</option>
+                  <option>Branch</option>
+                  <option>Other</option>
+                </select>
+
+                    <div style="margin-top:70px;" class="mb-3">
+
+                      <label style="color:black;" for="exampleFormControlTextarea1" class="form-label">Write Details</label>
+                      <textarea style="border:2px solid;" name="details" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    </div>
+                    <div style="text-align: center;width: 300px;height: 100px;padding-top: 10px;" class="col-12">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+         </form>
+        </div>
+
+</div>
+
+{% include 'js/complaint.js' %}
+{% endblock %}

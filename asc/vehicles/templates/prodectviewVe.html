@@ -1,0 +1,111 @@
+{% extends 'headerv.html' %}
+{% load static %}
+{% block body %}
+<!--Products Details-->
+{% include 'css/productviewVe.css' %}
+
+{% include 'windowloader.html' %}
+
+<br><br><br><br><br><br>
+<hr>
+
+<!--Vehicles Details Start-->
+{% if v %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div  class="col-md-4">
+            <img src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6 style="text-align: center;"><b>We also provide operator with the vehicles</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+                <a  id="open-popup-btn" href="/vehicles/bookingV/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+         </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="detail" class="col-md-6 de">
+                <h5><b>{{product.vehicle_name}}</b></h5><br><hr>
+                <p><b> Rent Price Rs : {{product.rent_price}} per hour only </b></p><br><hr>
+                <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Vehicles Details END-->
+
+
+<!--Tools Details Start-->
+{% if t %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6><b>We also provide operator with the Drone</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+              <a  id="open-popup-btnt" href="/vehicles/bookingT/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+            </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="details" class="col-md-6 de">
+                <h5><b>{{product.tool_name}}</b></h5><br><hr>
+                <p><b>Rent Price Rs : {{product.rent_price}} per day only </b></p><br><hr>
+                <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Tools Details END-->
+
+
+<!--Drone Details Start-->
+{% if d %}
+<div class="bl">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img  src="/media/{{product.image}}" class="w-100">
+            <hr>
+            <h6><b>We also provide operator with the Tool</b></h6>
+            <div style="margin-left:95px;margin-top:20px;" class="col-md-4">
+                 <img  src='{% static "images2/operator.png" %}' class="w-100">
+            </div>
+            <hr>
+            <div style="text-align: center;width: 300px;height: 200px;padding-top: 10px;">
+                <a  id="open-popup-btnd" href="/vehicles/bookingD/{{product.id}}" style="color:white;"><b style="margin-left: 5px;"><button  class="btn btn-primary cart">Book Now</button></b></a>
+            </div>
+        </div>
+            <!--        col-md-4-->
+        <div style="margin-left:20px;" id="detailss" class="col-md-6 de">
+                <h5><b>{{product.drone_name}}</b></h5><br><hr>
+                <p><b>Rent Price Rs : {{product.rent_price}} per day only </b></p><br><hr>
+          <p class="note"><b>Note :In this rent price operator charges are not include, that will charge separately after completed the work. </b></p><br><hr>
+
+                <p><b> Description :</b></p><hr>
+                <p class="desc"> {{product.desc}}</p><br><hr>
+        </div>
+    </div> <!--        row-->
+</div>  <!--    container-->
+</div>
+{% endif %}
+<!--Drone Details END-->
+
+
+{% endblock %}
+

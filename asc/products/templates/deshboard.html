@@ -1,0 +1,371 @@
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+ <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+{% include 'css/dashboard.css' %}
+
+{% include 'windowloader.html' %}
+
+{% if de %}
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle">
+			<i class='bx bx-menu' id="header-toggle"></i>
+
+		</div>
+			{% if noti >= 1 %}
+		<i id="notific" style="margin-left:90%;color:red;" class='bx bxs-bell-ring bx-tada'><span style="color:black;" ><b>{{noti}}</b></span></i>
+
+			{% endif %}
+
+        <div class="header_img">
+			{% for i in de %}
+				<img  src='/media/{{i.profile_pic}}'>
+			{% endfor %}
+		</div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            	<div> <a href="#" class="nav_logo">
+
+					{% for i in de %}
+
+					<img class="header_img" src='/media/{{i.profile_pic}}'>
+
+					<span class="nav_logo-name">{{i.fullname}}</span> </a><hr>
+					{% endfor %}
+
+					<div class="nav_list">
+						<a href="#" class="nav_link ">
+						<i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span>
+						</a>
+						<a id="deilveropen" href="#" class="nav_link active">
+						<i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+						{% if noti >= 2 %}
+						<a id="missed" href="#" class="nav_link">
+						<i  class='bx bxs-bell-ring bx-tada'></i> <span class="nav_name">Due Date Deliveries</span>
+						</a>
+						{% endif %}
+						<a id="todayopen" href="#" class="nav_link">
+						<i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Today Orders</span>
+						</a>
+
+						<a id="allorderss" href="#" class="nav_link">
+						<i class='bx bx-folder nav_icon'></i> <span class="nav_name">All Pending Orders</span> </a>
+
+						<a id="amounts" href="#"  class="nav_link">
+						<i class='bx bx-money-withdraw' ></i> <span class="nav_name">Received Money</span>
+						</a>
+					</div>
+            	</div>
+                <a href="/products/logout/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+
+    <!--Container Main start-->
+    <div class="height-100 bg-light" >
+
+		<div class="row" id="ordercount" style="display:flex;">
+		{% for i in de %}
+		<h5  id = welcome ><b>Welcome to Dashboard  {{i.fullname}}</b></h5><br><br>	<br>
+			<hr><br>
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white  mb-3" id="total-orders">
+						<div class="card-header">
+							<h5 class="card-title">Total Orders</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{dcity}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white  mb-3" id="orders-delivered">
+						<div class="card-header">
+							<h5 class="card-title">Orders Delivered</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{comp}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="col-md">
+					<div class="card text-center text-white  mb-3" id="orders-pending">
+						<div class="card-header">
+							<h5 class="card-title">Orders Pending</h5>
+						</div>
+						<div class="card-body">
+							<h3 class="card-title">{{pan}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr><br>
+		</div>
+
+		<!--		All Order Start-->
+	<div id ="allOrders" style="display:grid;">
+		<!--Customer Details-->
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<table class="table table-sm" id = customers>
+						<tr>
+							<th>Order ID</th>
+							<th>Customer</th>
+							<th>Address</th>
+							<th>Product</th>
+							<th>Amount</th>
+							<th>Phone Number</th>
+							<th>Order Date</th>
+							<th>Status</th>
+						</tr>
+						{% for i in cus %}
+							<tr>
+								<td>{{i.order_id}}</td>
+								<td>{{i.fullname}}</td>
+								<td>{{i.address}}</td>
+								<td>{{i.pname}}</td>
+								<td>{{i.amount}}</td>
+								<td>{{i.phone}}</td>
+								<td>{{i.order_time}}</td>
+								<td>{{i.STATUS}}</td>
+								<td><a href="/products/updtecash/{{i.order_id}}"><button  class="btn btn-success">Received Cash</button></a></td>
+							</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+		<!--		All Order ENDS-->
+
+		<!--		Today Ordes Start-->
+
+	<div id="Today" style="display:none;">
+		<!--Customer Details-->
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<table class="table table-sm" id = todaycustomers>
+						<tr>
+							<th>Order ID</th>
+							<th>Customer</th>
+							<th>Address</th>
+							<th>Product</th>
+							<th>Amount</th>
+							<th>Phone Number</th>
+							<th>Order Date</th>
+							<th>Status</th>
+						</tr>
+						{% for i in cus %}
+								{% if now == i.order_time %}
+									<tr>
+										<td>{{i.order_id}}</td>
+										<td>{{i.fullname}}</td>
+										<td>{{i.address}}</td>
+										<td>{{i.pname}}</td>
+										<td>{{i.amount}}</td>
+										<td>{{i.phone}}</td>
+										<td>{{i.order_time}}</td>
+										<td>{{i.STATUS}}</td>
+										<td><a href="/products/updtecash/{{i.order_id}}"><button  class="btn btn-success">Received Cash</button></a></td>
+									</tr>
+								{% endif %}
+						{% endfor %}
+
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+		<!--		Today Ordes ENDS-->
+
+		<!--		Threeday Ordes Start-->
+
+	<div id="threedayscontainer" style="display:none;">
+		<!--Customer Details-->
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<table class="table table-sm" id = threedaycustomers>
+						<tr>
+							<th>Order ID</th>
+							<th>Customer</th>
+							<th>Address</th>
+							<th>Product</th>
+							<th>Amount</th>
+							<th>Phone Number</th>
+							<th>Order Date</th>
+							<th>Status</th>
+						</tr>
+						{% for i in cus %}
+								{% if threedays >= i.order_time %}
+									<tr>
+										<td>{{i.order_id}}</td>
+										<td>{{i.fullname}}</td>
+										<td>{{i.address}}</td>
+										<td>{{i.pname}}</td>
+										<td>{{i.amount}}</td>
+										<td>{{i.phone}}</td>
+										<td>{{i.order_time}}</td>
+										<td>{{i.STATUS}}</td>
+										<td><a href="/products/updtecash/{{i.order_id}}"><button  class="btn btn-success">Received Cash</button></a></td>
+									</tr>
+								{% endif %}
+						{% endfor %}
+
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+		<!--		Threeday Ordes ENDS-->
+
+<!--		Total Amount Received container start-->
+		<div id="receivedamount" style="display:none; width:90%;margin-left:60px;margin-right:20px;">
+			<div class="row">
+				<div class="col">
+					<div class="col-md">
+						<div class="card text-center text-white  mb-3" id="orders-delivered">
+							<div class="card-header">
+								<h5 class="card-title">Cash Received </h5>
+							</div>
+							<div class="card-body">
+
+						<i id="moneycss" class='bx bx-money-withdraw' ></i> <span id="dispaymoney" class="nav_name">Rs {{am}}</span>
+<!--								<i class='bx bx-money' ><h3 class="card-title">Rs {{am}}</h3></i>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!--		Total Amount Received container ENDS-->
+
+<!--		dilver profile-->
+		<div id="deilverContainer" style="display:none">
+			{% for i in de %}
+				<div class="bl">
+					<div class="container my-4">
+						<div class="row">
+								<div class="col-md-4">
+									<img style="width:140px;margin-left:20px;" src='/media/{{i.profile_pic}}'>
+								</div>
+								<!--        col-md-4-->
+								<div id="detail" class="col-md-6 de" style="margin-right:40px;">
+									<br><h5><b>Name: {{i.fullname}}</b></h5><br><hr>
+									<p><b> Address : {{i.address}}  </b></p><br><hr>
+									<p><b> CNIC : {{i.cnic}}  </b></p><br><hr>
+									<p><b> City : {{i.city}}  </b></p><br><hr>
+									<p><b> Phone Number : {{i.phone}} </b></p><br><hr>
+									<p><b> Password {{i.password}}</b></p><br><hr>
+								</div>
+						</div> <!--        row-->
+					</div>  <!--    container-->
+				</div>  <!--Product Details END-->
+			{% endfor %}
+		</div>
+<!--		dilver profile ENDS-->
+
+		<!--		Notification profile-->
+		<div id="noticfication" style="display:none">
+
+				<div class="bl">
+					<div class="container my-4">
+						<div class="row">
+								<div class="col-md-4">
+									<i style="color:red;margin-left:395px;margin-top:25px;" class='bx bxs-bell-ring bx-tada'></i>
+								</div>
+								<!--        col-md-4-->
+								<div id="noty" class="col-md-6 de" style="margin-right:40px;">
+									<br><h5><b>Alert You Have {{noti}} pending Order deliveries Which have over of due date</b></h5><br><hr>
+
+									<br><h5><b>Check the Due Date Deliveries on Dashboard</b></h5><br><hr>
+								</div>
+						</div> <!--        row-->
+					</div>  <!--    container-->
+				</div>  <!--Product Details END-->
+
+		</div>
+<!--		Notification  ENDS-->
+
+</div>
+    <!--Container Main end-->
+
+
+{% include 'js/dashboard.js' %}
+{% include 'js/deshboard 2.js' %}
+
+{% endif %}
+
+{% if city %}
+	<br><br><br><br>
+	<h1 style="text-align:center;">Cash Details</h1>
+	<br>
+ <div class="row">
+	 <div class="col-md-2">
+	 </div>
+		<div class="col-md-8">
+			<ol class="list-group list-group-numbered">
+			  <li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+				  <div class="fw-bold">Order ID</div>
+
+				</div>
+				<span class="badge bg-primary rounded-pill">{{order_id}}</span>
+			  </li><br>
+			  <li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+				  <div class="fw-bold">Amount</div>
+
+				</div>
+				<span class="badge bg-primary rounded-pill">Rs.{{saa}}</span>
+			  </li><br>
+				 <li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+				  <div class="fw-bold">City</div>
+				</div>
+				<span class="badge bg-primary rounded-pill">{{city}}</span>
+			  </li><br>
+			  <li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+				  <div class="fw-bold">Delivery Status</div>
+				</div>
+				<span class="badge bg-primary rounded-pill">Delivered</span>
+			  </li><br>
+			  <li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+				  <div class="fw-bold">Payment Status</div>
+
+				</div>
+				<span class="badge bg-primary rounded-pill">Received</span>
+			  </li>
+			</ol>
+			<form action="/products/delivers/">
+
+               <button style="margin-top:24px;" type="submit" class="btn btn-primary cart">Dismiss</button>
+            </form>
+ 	</div>
+
+ </div>
+{% endif %}
