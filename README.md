@@ -37,37 +37,40 @@
 # Branches 
 ![branches](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/branches.PNG?raw=true)
 # Admin Analytics
-![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin analytics.PNG?raw=true)
-![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin analytics 2.PNG?raw=true)
-![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin analytics 3.PNG?raw=true)
+![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin%20analytics.PNG?raw=true)
+
+![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin%20analytics%202.PNG?raw=true)
+
+![analytics](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/admin%20analytics%203.PNG?raw=true)
+
 # Products
 ![product](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/E2.PNG?raw=true)
 # Products Details
-![proddetails](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/product details.PNG?raw=true)
+![proddetails](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/product%20details.PNG?raw=true)
 # Order
-![order](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/order form.PNG?raw=true)
+![order](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/order%20form.PNG?raw=true)
 # Tracking ID
 ![tracking](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/order_2.PNG?raw=true)
 # Order Status
-![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track order 1.PNG?raw=true)
-![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track order 2.PNG?raw=true)
-![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track order 3.PNG?raw=true)
+![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track%20order%201.PNG?raw=true)
+![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track%20order%202.PNG?raw=true)
+![status](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/track%20order%203.PNG?raw=true)
 # Forgot ID
-![forgot](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/forgot id 1.PNG?raw=true)
-![forgot](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/forgot id 2.PNG?raw=true)
+![forgot](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/forgot%20id%201.PNG?raw=true)
+![forgot](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/forgot%20id%202.PNG?raw=true)
 # Vehicles
 ![vehicles](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/3.PNG?raw=true)
 ![vehicles](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/E3.PNG?raw=true)
 # Vehicles Details
-![vehiclesdetails](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/vehical detais.PNG?raw=true)
+![vehiclesdetails](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/vehical%20detais.PNG?raw=true)
 # Login
 ![login](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/login.PNG?raw=true)
 # Branch Pannel
-![branch](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/branch pannel 1.PNG?raw=true)
+![branch](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/branch%20pannel%201.PNG?raw=true)
 # Received Cash
-![cash](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/Cash received.PNG?raw=true)
+![cash](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/Cash%20received.PNG?raw=true)
 # Total Cash Received
-![tcash](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/Cash received 2.PNG?raw=true)
+![tcash](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/Cash%20received%202.PNG?raw=true)
 # Notifications
 ![noti](https://github.com/MuhammadIshaqSkd/E-Farming-Store/blob/main/screenshots/notification.PNG?raw=true)
 # Profile
