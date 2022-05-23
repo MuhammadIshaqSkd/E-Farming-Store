@@ -1,2 +1,3 @@
-asc/static
-screenshots
+**/asc/static
+
+**/screenshots
