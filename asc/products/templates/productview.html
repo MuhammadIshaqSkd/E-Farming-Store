@@ -1,14 +1,14 @@
 {% extends 'headerp.html' %}
 {% load static %}
 {% block body %}
-<!--Hotel Details-->
+
 {% include 'css/productview.css' %}
 
 {% include 'windowloader.html' %}
 {% if pv %}
 
-<br><br><br><br><br><br><br>
-<hr>
+<br><br><br><br><br><br>
+
 <div id="prodview" class="bl" style="display:flex;">
 <div class="container my-4">
     <div class="row">
@@ -34,55 +34,63 @@
 
 <!--order Form start-->
 <br><br>
-<div style="margin-left:15%;">
+<div style="margin-left:17%;">
 <div id="Orderfrom" style="display:none">
-<div id="bookingformdiv" class="row g-3" style="">
-      <hr>
-    <h1 style="margin-left:30%;letter-spacing: 0.5rem;margin-top:10px;"><b>Order Form</b></h1>
-        <hr>
-  </div>
-<form id="formdiv" action="/products/order/" style="border: 2px solid black;" method = "POST" class="row g-3">
-        {% csrf_token %}
-                        <input type="hidden" name="pname"  value="{{product.product_name}}" >
-                        <input type="hidden" name="amount"  value="{{product.price}}" >
+    <div class="row" >
+            <div style=" margin-left:-40px;"  class="col-md-7">
+                <hr >
+                <h1 style="text-align: center;"><b>Order Form</b></h1>
+                <hr >
+            </div>
+    </div>
+<div class="row">
+    <div style="background-color:lightblue;margin-left:-40px;" class="col-md-7">
+        <form  action="/products/order/" style="" method = "POST" class="row g-3">
+                {% csrf_token %}
+                                <input type="hidden" name="pname"  value="{{product.product_name}}" >
+                                <input type="hidden" name="amount"  value="{{product.price}}" >
 
-              <div  class="col-md-5">
-                <label    for="inputEmail4" class="form-label"><b>Name</b></label>
-                <input style="background-color:lightblue;" type="text" class="form-control" name="fullname" id="inputEmail4" placeholder="abc" required>
-              </div>
-              <div class="col-md-6">
-                <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
-                <input style="background-color:lightblue;" type="number" class="form-control" name="phone" id="phone" placeholder="+92" required>
-              </div>
-              <div class="col-12">
-                <label  for="inputAddress" class="form-label"><b>Address</b></label>
-                <input style="background-color:lightblue; width:92%; " type="text" class="form-control" name="address" id="inputAddress" placeholder="abc" required>
-              </div>
-              <div class="col-md-6">
-                <label  for="inputCity" class="form-label"><b>CNIC</b></label>
-                <input style="background-color:lightblue;" type="number" class="form-control" name="cnic" id="cnic" placeholder="don't use  '-' " required>
-              </div>
-              <div class="col-md-4">
-                <label for="inputState" class="form-label"><b>Quantity</b></label>
-                <select style="margin-left:50px;width:80%;background-color:lightblue;height:40%;" name="qty" id="inputState" class="form-select">
-                    <option value= "1" >1</option>
-                    <option value= "2" >2</option>
-                    <option value= "3" >3</option>
-                </select>
-              </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label"><b>Select Your City</b></label>
-                    <select style="width:80%;background-color:lightblue;height:40%;" name="city" id="inputsState" class="form-select">
-                       <option value="Karachi">Karachi</option>
-                        <option value="Rawalpindi">Rawalpindi</option>
-                        <option value="Lahore">Lahore</option>
-                        <option value="Chakwal">Chakwal</option>
-                    </select>
-              </div>
-              <div style="text-align: center;width: 300px;height: 100px;padding-top: 10px;" class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
- </form>
+                      <div  class="col-md-5">
+                        <label    for="inputEmail4" class="form-label"><b>Name</b></label>
+                        <input style="background-color:lightgray;" type="text" class="form-control" name="fullname" id="inputEmail4" placeholder="abc" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
+                        <input style="background-color:lightgray;" type="number" class="form-control" name="phone" id="phone" placeholder="+92" required>
+                      </div>
+                      <div class="col-12">
+                        <label  for="inputAddress" class="form-label"><b>Address</b></label>
+                        <input style="background-color:lightgray; width:92%; " type="text" class="form-control" name="address" id="inputAddress" placeholder="abc" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label  for="inputCity" class="form-label"><b>CNIC</b></label>
+                        <input style="background-color:lightgray;" type="number" class="form-control" name="cnic" id="cnic" placeholder="don't use  '-' " required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputState" class="form-label"><b>Quantity</b></label>
+                        <select style="margin-left:50px;width:80%;background-color:lightgray;height:40%;" name="qty" id="inputState" class="form-select">
+                            <option value= "1" >1</option>
+                            <option value= "2" >2</option>
+                            <option value= "3" >3</option>
+                        </select>
+                      </div>
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label"><b>Select Your City</b></label>
+                            <select style="width:80%;background-color:lightgray;height:40%;" name="city" id="inputsState" class="form-select">
+                               <option value="Karachi">Karachi</option>
+                                <option value="Rawalpindi">Rawalpindi</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Chakwal">Chakwal</option>
+                            </select>
+                      </div>
+                      <div style="text-align: center;width: 300px;height: 100px;padding-top: 10px;margin-top:30px;" class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+         </form>
+    </div>
+    <div class="col-md-5"></div>
+</div>
+
 </div>
     </div>
 <!--Order Form end-->
