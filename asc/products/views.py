@@ -1,10 +1,10 @@
-
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from .models import Product, Order, Deliver, complete
 from math import ceil
 
-6
+
 
 from .decorators import unauthenticated_user
 
