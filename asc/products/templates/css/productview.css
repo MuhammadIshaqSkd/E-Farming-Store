@@ -99,4 +99,31 @@ font-color:black;
    margin-bottom:20px;
    }
 }
+
+
+         #cnic{
+  -moz-appearance: textfield;
+}
+#cnic::-webkit-inner-spin-button {
+  display: none;
+}
+#cnic::-webkit-outer-spin-button,
+#cnic::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+        #phone{
+  -moz-appearance: textfield;
+}
+#phone::-webkit-inner-spin-button {
+  display: none;
+}
+#phone::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>

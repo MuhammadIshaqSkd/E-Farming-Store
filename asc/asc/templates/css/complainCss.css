@@ -88,4 +88,17 @@ h1 {
             75%{ background-image: url({% static "vehicles/24.png" %} ); }
             100%{ background-image: url({% static "vehicles/operator.png" %}); }
         }
+
+
+         #phone{
+  -moz-appearance: textfield;
+}
+#phone::-webkit-inner-spin-button {
+  display: none;
+}
+#phone::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>

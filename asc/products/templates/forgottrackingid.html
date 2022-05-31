@@ -2,6 +2,20 @@
 
 
 {% block body %}
+<style>
+
+             #cnic{
+  -moz-appearance: textfield;
+}
+#cnic::-webkit-inner-spin-button {
+  display: none;
+}
+#cnic::-webkit-outer-spin-button,
+#cnic::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
 <br><br><br><br> <br><br><br>
 
 <div id="formcontiner" style="display:grid;" class="container">
@@ -14,7 +28,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="cnic">CNIC</label>
-                    <input type="cnic" class="form-control" id="cnic" name="cnic" placeholder="CNIC" required><br>
+                    <input type="number" class="form-control" id="cnic" name="cnic" placeholder="CNIC" required><br>
                 </div>
                 <div class="forgotbtn">
                      <button  id="subited" class="btn btn-primary">Submit</button>

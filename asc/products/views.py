@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from .models import Product, Order, Deliver, complete
 from math import ceil
 
-from django.contrib import messages
+6
 
 from .decorators import unauthenticated_user
 

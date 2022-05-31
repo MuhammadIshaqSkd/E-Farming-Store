@@ -51,4 +51,29 @@
     position: relative;
     }
 
+
+            #order_id{
+  -moz-appearance: textfield;
+}
+#order_id::-webkit-inner-spin-button {
+  display: none;
+}
+#order_id::-webkit-outer-spin-button,
+#order_id::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+            #cnic{
+  -moz-appearance: textfield;
+}
+#cnic::-webkit-inner-spin-button {
+  display: none;
+}
+#cnic::-webkit-outer-spin-button,
+#cnic::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>

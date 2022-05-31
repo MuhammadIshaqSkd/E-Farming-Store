@@ -26,10 +26,10 @@
          <form id="formdiv" action="/vehicles/complaints/" method = "POST">{% csrf_token %}
             <div id="demo" class="collapse">
                <label    for="inputEmail4" class="form-label"><b>Name</b></label>
-                <input style="border:2px solid;" type="name" class="form-control" name="name" id="inputEmail4" placeholder="abc" required>
+                <input style="border:2px solid;" type="text" class="form-control" name="name" id="inputEmail4" placeholder="abc" required>
 
                 <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
-                <input style="border:2px solid;" type="phone" class="form-control" name="phone" id="inputPassword4" placeholder="+92" required>
+                <input style="border:2px solid;" type="number" class="form-control" name="phone" id="phone" placeholder="+92" required>
 
                 <label style="" for="inputState" class="form-label"><b> Complaint Type</b></label>
                 <select style="margin-left:600px;width:0%;background-color:lightblue;" name="comtype" id="inputState" class="form-select">
