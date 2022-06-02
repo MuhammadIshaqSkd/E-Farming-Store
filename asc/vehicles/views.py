@@ -103,7 +103,7 @@ def bookingOrder(request):
         branch = request.POST.get('branch', '')
         bookings = Booking(name=name,vname=vname,address=address, phone=phone,
                   cnic=cnic,amount=amount,branch=branch, )
-        s = drone.objects.all()
+        s = 'new'
         bookings.save()
         id = bookings.booking_id
         print(id)

@@ -6,19 +6,8 @@
 <br><br><br><br><br><br><br>
 
  {% if f %}
-
-        <br>
-        <div class="row" >
-            <div class="col-md-1"></div>
-          <div  class="col-md-7" style=" margin-left:-40px;" >
-              <hr>
-                <h1 style="text-align: center;"><b>Booking Form</b></h1>
-                <hr>
-          </div>
-        </div><br>
-        <div class="row>">
-            <div class="col-md-10">
-             <form id="formdiv" action="/vehicles/bookingOrder/" method = "POST" class="row g-3">
+<div class="testbox">
+      <form id="forms" action="/vehicles/bookingOrder/" method = "POST" class="row g-3">
                     {% csrf_token %}
                  {% if v %}
                     <input type="hidden" name="vname"  value="{{product.vehicle_name}}" >
@@ -32,39 +21,49 @@
                         <input type="hidden" name="vname"  value="{{product.drone_name}}" >
                         <input type="hidden" name="amount"  value="{{product.rent_price}}" >
                  {% endif %}
-
-                          <div  class="col-md-5">
-                            <label    for="inputEmail4" class="form-label"><b>Name</b></label>
-                            <input style="background-color:lightblue;" type="text" class="form-control" name="name" id="inputEmail4" placeholder="abc" required>
-                          </div>
-                          <div class="col-md-6">
-                            <label  for="inputPassword4" class="form-label"><b>Phone Number</b></label>
-                            <input style="background-color:lightblue;" type="number" class="form-control" name="phone" id="phone" placeholder="+92" required>
-                          </div>
-                          <div class="col-12">
-                            <label  for="inputAddress" class="form-label"><b>Address</b></label>
-                            <input style="background-color:lightblue; width:92%; " type="text" class="form-control" name="address" id="inputAddress" placeholder="abc" required>
-                          </div>
-                          <div class="col-md-6">
-                            <label  for="inputCity" class="form-label"><b>CNIC</b></label>
-                            <input style="background-color:lightblue;" type="number" class="form-control" name="cnic" id="cnic" placeholder="don't use  '-' " required>
-                          </div>
-                          <div class="col-md-4">
-                            <label for="inputState" class="form-label"><b>Choice Branch</b></label>
+        <div class="banner">
+          <h1> Booking </h1>
+        </div>
+        <br/>
+        <fieldset>
+          <legend>Personal Details</legend>
+               </fieldset>
+        <br/>
+        <fieldset>
+           <div class="colums">
+          <div class="item">
+            <label for="fname"> Your Name<span>*</span></label>
+            <input id="fname" type="text" name="name" required />
+          </div>
+          <div class="item">
+            <label for="phone">Phone Numbe <span>*</span></label>
+            <input id="address1" type="number"    name="phone" required />
+          </div>
+          <div class="item">
+            <label for="address1">Address <span>*</span></label>
+            <input id="applyjob" type="text"   name="address" required />
+          </div>
+          <div class="item">
+            <label for="city">CNIC<span>*</span></label>
+            <input id="citys" type="number"   name="cnic" required />
+          </div>
+               <div class="item">
+                   <label for="inputState" class="form-label"><b>Choice Branch</b></label>
                             <select  style="margin-left:600px;height:0px;width:0px;background-color:white;margin-top:-20px;"  name="branch" id="inputState">
                               <option>Rawalpindi</option>
                               <option>Lahore</option>
                               <option>Karachi</option>
                               <option>Chakwal</option>
                             </select>
-                          </div>
-                          <div style="text-align: center;width: 300px;height: 100px;padding-top: 10px;" class="col-12">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                          </div>
-                </form>
-            </div>
+               </div>
+          </div>
+                </fieldset>
+        <div class="btn-block">
+          <button type="submit" >Submit</button>
         </div>
- {% endif %}
+      </form>
+    </div>
+{% endif %}
 
 {% if s %}
 <div class="bg-modals">
@@ -87,7 +86,6 @@
   </div>
 </div>
 {% endif %}
-
 
 <!--Complaint Dest popup start-->
 {% if c %}
