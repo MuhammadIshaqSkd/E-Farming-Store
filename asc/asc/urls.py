@@ -24,6 +24,7 @@ urlpatterns = [
     path('',views.index),
     path('index/',views.index),
     path('complaindesk/',views.complaindesk),
+    path('contactUS/',views.contactUS),
 
     path('products/',include('products.urls')),
     path('vehicles/',include('vehicles.urls')),

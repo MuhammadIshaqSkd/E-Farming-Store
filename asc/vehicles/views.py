@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import vehicle,tool,drone,Booking,branche,complaint
+from .models import vehicle,tool,drone,Booking,branche,complaint,contactUs
 from math import ceil
 # Create your views here.
 
@@ -195,3 +195,16 @@ def cancelbooking(request):
         dels = Booking.objects.get(booking_id=booking_id)
         dels.delete()
     return render(request, 'bookingStatus.html',{'dele':dele})
+
+
+def contactus(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message', '')
+
+        conpl = contactUs(name=name,email=email, subject=subject, mesage=message, )
+        conpl.save()
+        c = name
+    return render(request, 'contactus.html',{'c':c})

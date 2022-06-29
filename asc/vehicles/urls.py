@@ -49,4 +49,7 @@ urlpatterns = [
     path("cancelbooking/",views.cancelbooking),
 
 
+    path("contactus/",views.contactus),
+
+
 ]

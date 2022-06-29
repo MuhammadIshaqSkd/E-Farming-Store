@@ -95,3 +95,14 @@ class complaint(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class contactUs(models.Model):
+    name=models.CharField(max_length=50, default="")
+    email= models.CharField(max_length=50, default="")
+    subject= models.CharField(max_length=20, default="")
+    mesage= models.CharField(max_length=1000, default="")
+    contact_time = models.DateTimeField(default=datetime.datetime.today(), null=True)
+
+    def __str__(self):
+        return self.name

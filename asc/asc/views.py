@@ -24,3 +24,8 @@ def complaindesk(request):
     #
     # engine.runAndWait()
     return render(request, 'compaindesk.html')
+
+def contactUS(request):
+
+    d = 'name'
+    return render(request, 'contactus.html',{'d':d})
