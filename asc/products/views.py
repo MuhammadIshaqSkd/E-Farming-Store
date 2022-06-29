@@ -88,6 +88,7 @@ def forgottrackingid(request):
     return render(request, 'forgottrackingid.html')
 
 def checkingcnicids(request):
+    print("hello")
     if request.method == "POST":
         cnic = request.POST.get('cnic', '')
         order = Order.objects.filter(cnic=cnic)
