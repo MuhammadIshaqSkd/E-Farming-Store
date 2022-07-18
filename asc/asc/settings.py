@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'asc.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# Added for remove error
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 DATABASES = {
     'default': {
