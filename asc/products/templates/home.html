@@ -37,7 +37,7 @@
                             </div>
                             <div class="product-details">
                                     <span class="product-catagory">{{product.0.type}} off</span>
-                                    <h3><a  href="/products/productview/{{i.id}}">{{i.product_name}}</a></h3>
+                                    <h3><a  href="/products/productview/{{i.id}}">{{i.product_name |truncatewords:4 }}</a></h3>
                                     <div class="product-bottom-details">
                                         <div class="product-price"> Rs : {{i.price}}</div>
                                         <div class="product-links">

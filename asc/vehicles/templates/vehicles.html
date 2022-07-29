@@ -32,14 +32,21 @@
                             </div>
                             <div class="product-details">
                                     <span class="product-catagory">{{i.TYPE}}</span>
-                                    <p><a  href="/vehicles/productviewV/{{i.id}}">{{i.vehicle_name}}</a></p>
+                                    <p><a  href="/vehicles/productviewV/{{i.id}}">{{i.vehicle_name |truncatewords:4 }}</a></p>
                                     <div class="product-bottom-details">
-                                        <div class="product-price"><small>$96.00</small>{{i.rent_price}}</div>
+                                        <div class="product-price">
+                                            Rent {{i.rent_price}}
+                                        </div>
+
                                         <div class="product-links">
                                             <i id="heart" style="color:gray;" class="fa fa-heart"></i>
                                             <a href="/vehicles/bookingV/{{i.id}}" ><i class="fa fa-shopping-cart"></i></a>
                                         </div>
+
                                     </div>
+                                <div>
+                                            <p>Post Date {{i.pub_date |timesince}} ago </p>
+                                        </div>
                             </div>
                         </div>
                     </div>

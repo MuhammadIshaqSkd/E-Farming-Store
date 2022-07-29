@@ -26,7 +26,8 @@
           <p><b> Percentage Off : {{product.percent_off}} % <br><br><span class="note"><b>Note : This Offer is for limited time. So hurry up! </b></span></b></p><br><hr>
 
                 <p><b> Description :</b></p><hr>
-                <p class="desc"> {{product.desc}}</p><br><hr>
+                <p class="desc"> {{product.desc |linebreaks }}</p><br><hr>
+                <p>Posted Date : {{product.pub_date |timesince}} ago</p>
         </div>
     </div> <!--        row-->
 </div>  <!--    container-->

@@ -139,7 +139,7 @@
 								<td>{{i.pname}}</td>
 								<td>{{i.amount}}</td>
 								<td>{{i.phone}}</td>
-								<td>{{i.order_time}}</td>
+								<td>{{i.order_time|timesince}} ago</td>
 								<td>{{i.STATUS}}</td>
 								<td><a href="/products/updtecash/{{i.order_id}}"><button  class="btn btn-success">Received Cash</button></a></td>
 							</tr>
